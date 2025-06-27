@@ -1,78 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
-
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div
-      class="text-7xl text-data font-bold bg-gradient-to-r from-cyan-200 via-black-500 to-sky-200 text-transparent bg-clip-text"
-    >
-      GET WEATHER DATA ACCURATE
-    </div>
-    <input
-      type="text"
-      class="border shadow-lg text-7xl text-cyan-200 border-cyan-500 bg-black rounded-lg"
-      placeholder="Enter your location "
-      id="locationInput"
-    />
+  <body class="bg-gradient-to-br from-sky-100 via-blue-200 to-cyan-200 min-h-screen flex flex-col items-center justify-center">
+    <header class="py-8 bg-white bg-opacity-80 shadow-md">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-center text-sky-800 tracking-tight">
+        Weather App
+      </h1>
+      <p class="text-center text-lg text-sky-600 mt-2">
+        Get accurate and up-to-date weather information for your location
+      </p>
+    </header>
 
-    <button
-      class="ml-40 text-white mt-12 bg-sky-600 rounded-lg text-3xl font-md p-5 hover:bg-red-300 hover:text-black transform ease-in-out hover:shadow-lg"
-      onclick="getWeather()"
-      id="weatherbtn"
-    >
-      Get data
-    </button>
-
-    <!-- <div id="weatherOutput h-96 w-68 shadow-lg rounded-lg"> -->
-    <div id="displayData"></div>
-
-    <!-- </div> -->
-
-    <footer class="footer">
-      <div class="waves">
-        <div class="wave" id="wave1"></div>
-        <div class="wave" id="wave2"></div>
-        <div class="wave" id="wave3"></div>
-        <div class="wave" id="wave4"></div>
-      </div>
-      <ul class="social-icon">
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="#">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </a>
-        </li>
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="https://x.com/Pritam_Awatade">
-            <ion-icon name="logo-twitter"></ion-icon>
-          </a>
-        </li>
-        <li class="social-icon__item">
-          <a
-            class="social-icon__link"
-            href="https://www.linkedin.com/in/pritam-awatade-411b27252/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BZXZ7qWgESruD46hsM4pnDw%3D%3D"
+    <main class="flex-grow flex items-center justify-center overflow-hidden">
+      <div class="bg-white bg-opacity-90 rounded-2xl shadow-2xl p-10 w-full max-w-xl">
+        <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); getWeather();">
+          <label for="locationInput" class="text-lg font-medium text-sky-800">Enter your location</label>
+          <input
+            type="text"
+            class="border border-sky-400 rounded-lg px-5 py-3 text-xl focus:outline-none focus:ring-2 focus:ring-sky-300 transition"
+            placeholder="e.g. New York, London, Tokyo"
+            id="locationInput"
+            required
+          />
+          <button
+            class="bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg py-3 text-xl transition shadow-md"
+            type="submit"
+            id="weatherbtn"
           >
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </li>
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="#">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
-      </ul>
+            Get Weather
+          </button>
+        </form>
+        <div id="displayData" class="mt-8"></div>
+      </div>
+    </main>
 
-      <p>&copy;2024 Pritam Awatade | All Rights Reserved</p>
-    </footer>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="Script.js"></script>
   </body>
 </html>

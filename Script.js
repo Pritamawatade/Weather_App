@@ -1,4 +1,4 @@
-const apiKey = "964cc5a284a14f10b8b131851240508"; // Replace with your actual API key
+const apiKey = "API_KEY"; // Replace with your actual API key
 
 async function getWeather() {
   const location = document.getElementById("locationInput").value;
@@ -21,25 +21,41 @@ async function getWeather() {
     alert("Failed to fetch weather data. Please try again.");
   }
 }
-
+// ...existing code...
 function displayWeather(data) {
   const weatherOutput = document.getElementById("displayData");
   const weatherInfo = `
-  <div>
-  <h1 class="text-white text-3xl font-lg">Weather in ${data.location.name}, ${data.location.country}</h1>
-  <p class="text-white text-3xl font-lg">city: ${data.location.name}</p>
-  <p class="text-white text-3xl font-lg">State: ${data.location.region}</p>
-  <p class="text-white text-3xl font-lg">Time Zone: ${data.location.tz_id}</p>
-  <p class="text-white text-3xl font-lg">Wind MPH: ${data.current.wind_mph}</p>
-  <p class="text-white text-3xl font-lg">Last updated: ${data.current.last_updated}</p>
-  <p class="text-white text-3xl font-lg">cloud : ${data.current.cloud}</p>
-  <p class="text-white text-3xl font-lg">LocalTime: ${data.location.localtime}</p>
-  
-  <p class="text-white text-3xl font-lg">Humidity: ${data.current.humidity}</p>
-  <p class="text-white text-3xl font-lg" >Temperature: ${data.current.temp_c}°C</p>
-  <p class="text-white text-3xl font-lg">Condition: ${data.current.condition.text}</p>
-  <img class="h-88 img-fluid" src="${data.current.condition.icon}" alt="Weather icon">
-  </div>
-    `;
+    <div class="bg-sky-50 rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <div class="flex items-center gap-4 mb-4">
+        <img class="w-20 h-20" src="${data.current.condition.icon}" alt="Weather icon">
+        <div>
+          <h2 class="text-2xl font-bold text-sky-800">${data.location.name}, ${data.location.country}</h2>
+          <p class="text-sky-600 text-sm">${data.location.region} | ${data.location.tz_id}</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 w-full text-sky-700 text-lg">
+        <div>
+          <span class="font-semibold">Temperature:</span> ${data.current.temp_c}°C
+        </div>
+        <div>
+          <span class="font-semibold">Condition:</span> ${data.current.condition.text}
+        </div>
+        <div>
+          <span class="font-semibold">Humidity:</span> ${data.current.humidity}%
+        </div>
+        <div>
+          <span class="font-semibold">Wind:</span> ${data.current.wind_mph} mph
+        </div>
+        <div>
+          <span class="font-semibold">Cloud:</span> ${data.current.cloud}%
+        </div>
+        <div>
+          <span class="font-semibold">Local Time:</span> ${data.location.localtime}
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-sky-500">Last updated: ${data.current.last_updated}</p>
+    </div>
+  `;
   weatherOutput.innerHTML = weatherInfo;
 }
+// ...existing code...
